@@ -1,0 +1,11 @@
+GET stocks/stock/_search
+{
+  "aggs": {
+    "Number of companies": {
+      "terms": {
+        "field": "description.Sector.keyword",
+        "size": 30
+      }
+    }
+  }
+}

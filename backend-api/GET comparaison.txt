@@ -1,0 +1,28 @@
+GET stocks/stock/_search
+{
+  "aggs": {
+    "comparaisonPer": {
+      "terms": {
+        "field": "description.Sector.keyword",
+        "size": 30
+      },
+      "aggs": {
+        "average": {
+          "avg": {
+            "field": "ROI"
+          }
+        },
+        "maximum": {
+          "max": {
+            "field": "ROI"
+          }
+        },
+        "mininimum": {
+          "min": {
+            "field": "ROI"
+          }
+        }
+      }
+    }
+  }
+}
